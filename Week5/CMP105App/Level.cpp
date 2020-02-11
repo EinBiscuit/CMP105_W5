@@ -6,7 +6,10 @@ Level::Level(sf::RenderWindow* hwnd, Input* in)
 	input = in;
 
 	// initialise game objects
-
+	corpyTexture.loadFromFile("gfx/animZombie.png");
+	corpy.setSize(sf::Vector2f(55, 108));
+	corpy.setPosition(100, 100);
+	corpy.setTexture(&corpyTexture);
 }
 
 Level::~Level()
@@ -23,13 +26,15 @@ void Level::handleInput(float dt)
 // Update game objects
 void Level::update(float dt)
 {
-
+	corpy.update(dt);
 }
 
 // Render level
 void Level::render()
 {
 	beginDraw();
+
+	window->draw(corpy);
 
 	endDraw();
 }
